@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+    has_many :book_clubs, as member
+    has_many :book_clubs, as admin
 def show
     @user=User.find(params[:id])
     render json:{user: @user}
