@@ -23,6 +23,7 @@ gem 'jwt'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'pg', '0.21.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -42,7 +43,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
     # db for heroku - switch to postgres
-  gem 'pg', '0.21.0'
+
 end
 
 

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_07_30_174329) do
+=======
+ActiveRecord::Schema.define(version: 2019_08_04_151451) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
+  enable_extension "plpgsql"
+>>>>>>> 1b9540f9f7de875263b7f1d94c82c307ce4f1dfe
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -18,6 +26,10 @@ ActiveRecord::Schema.define(version: 2019_07_30_174329) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.hstore "address"
+>>>>>>> 1b9540f9f7de875263b7f1d94c82c307ce4f1dfe
   end
 
 end
