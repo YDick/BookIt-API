@@ -1,11 +1,11 @@
 class Api::V1::UsersController < ApplicationController
 
-
+  # GET api/v1/users/:id
 def show
     @user=User.find(params[:id])
     render json:{user: @user}
 end
-
+ 
 def create
     @user=User.create(user_params)
     render json:{user: @user}
