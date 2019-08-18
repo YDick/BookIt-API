@@ -12,6 +12,6 @@ class DropAddresses < ActiveRecord::Migration[5.2]
       t.string :postal_code
 
       t.timestamps        
+    end
+
   end
-  
-end
