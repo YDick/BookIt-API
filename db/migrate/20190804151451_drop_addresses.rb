@@ -1,5 +1,5 @@
 class DropAddresses < ActiveRecord::Migration[5.2]
-  def up
+  def change
     drop_table :addresses
   end
   
