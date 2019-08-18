@@ -1,8 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :book_clubs, as member
-    has_many :book_clubs, as admin
+    has_many :book_clubs
+
+    
 
     before_validation {
         (self.email = self.email.to_s.downcase)

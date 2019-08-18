@@ -1,12 +1,13 @@
 class Api::V1::UsersController < ApplicationController
   # list all the methods that the user needs to be logged in to access
-#  before_action :authentication_user, only[]
+ before_action :authenticate_user, only[]
 
     def index
         @users = User.all
         render json: {status: 200, msg: "all users returned", users: @users}
     end
 
+    # GET /api/v1/current
     def current
         render json: {current_user: current_user}
     end
