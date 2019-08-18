@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   # list all the methods that the user needs to be logged in to access
- before_action :authenticate_user, only[:current, :update, :delete]
+ before_action :authenticate_user, only:[:current, :update, :delete]
 
     # GET api/v1/users/
     def index
@@ -24,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save 
-            render json: {status: 200, msg: "new user created"}
+            render json: {status: 200, msg: "new user created", user: @user}
         end
     end
     # PATCH api/v1/users/:id
@@ -34,8 +34,9 @@ class Api::V1::UsersController < ApplicationController
     end
 
     # DELETE api/v1/users/:id
-    def delete
-        @user=User.delete(params[:id])
+    def destroy
+        @user=User.find(params[:id])
+        User.delete(params[:id])
         render json:{status: 200, user: @user}
     end
 

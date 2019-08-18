@@ -5,7 +5,6 @@ class User < ApplicationRecord
     has_many :admins
 
     
-
     before_validation {
         (self.email = self.email.to_s.downcase)
     }
