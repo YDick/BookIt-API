@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /api/v1/current
     def current
-        render json: {current_user: current_user}
+        render json: {status: 200, current_user: current_user}
     end
 
 
