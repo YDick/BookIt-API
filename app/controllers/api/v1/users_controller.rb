@@ -17,7 +17,7 @@ def update
   render json:{user: @user}
 end
 
-def delete
+def destroy
   @user=User.delete(params[:id])
   render json:{user: @user}
 end

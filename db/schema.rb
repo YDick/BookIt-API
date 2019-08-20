@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_015807) do
+ActiveRecord::Schema.define(version: 2019_08_19_020321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
+
+  create_table "admins_book_clubs", force: :cascade do |t|
+    t.bigint "admins_id"
+    t.bigint "book_club_id"
+    t.index ["admins_id"], name: "index_admins_book_clubs_on_admins_id"
+    t.index ["book_club_id"], name: "index_admins_book_clubs_on_book_club_id"
+  end
 
   create_table "book_clubs", force: :cascade do |t|
     t.string "name"
@@ -25,7 +32,9 @@ ActiveRecord::Schema.define(version: 2019_08_15_015807) do
     t.hstore "club_location"
   end
 
-  create_table "book_clubs_users", force: :cascade do |t|
+  create_table "book_clubs_users", id: false, force: :cascade do |t|
+    t.integer "book_club_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +46,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_015807) do
     t.hstore "address"
   end
 
+  add_foreign_key "admins_book_clubs", "book_clubs"
+  add_foreign_key "admins_book_clubs", "users", column: "admins_id"
 end
