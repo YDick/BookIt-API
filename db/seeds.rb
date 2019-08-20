@@ -8,6 +8,7 @@
 
 User.create({name: 'seed', email: 'seed@yahoo.com', password: 'password123'})
 User.create({name: 'seed2', email: 'seed2@yahoo.com', password: 'password123'})
+User.create({name: 'seed', email: 'seed@gmail.com', password: 'password123'})
 
 BookClub.create({name: 'clubseed'})
 
