@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
-BookClub.delete_all
+# User.delete_all
+# BookClub.delete_all
 
-User.create({name: 'seed', email: 'seed@yahoo.com', password: 'password123', address: {address_line1: '301', address_line2: 'Front St W', city: 'Toronto'}})
-User.create({name: 'seed2', email: 'seed2@yahoo.com', password: 'password123', address: {address_line1: '301', address_line2: 'Front St W', city: 'Toronto'} })
+User.create({name: 'seed3', email: 'seed3@yahoo.com', password: 'password123', address: {address_line1: '301', address_line2: 'Front St W', city: 'Toronto'}})
+User.create({name: 'seed4', email: 'seed4@yahoo.com', password: 'password123', address: {address_line1: '301', address_line2: 'Front St W', city: 'Toronto'} })
 
-BookClub.create({name: 'clubseed', club_location: {address_line1: '123', address_line2: 'Front St W', city: 'Toronto'}})
+BookClub.create({name: 'clubseed1', club_location: {address_line1: '123', address_line2: 'Front St W', city: 'Toronto'}})
 BookClub.create({name: 'clubseed2', club_location: {address_line1: '160', address_line2: 'Front St W', city: 'Toronto'}})
 BookClub.create({name: 'clubseed3', club_location: {address_line1: '255', address_line2: 'Bremner Blvd', city: 'Toronto'}})
