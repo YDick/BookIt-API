@@ -21,6 +21,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'knock'
 
+# security issue with old version of nokogiri
+gem "nokogiri", ">= 1.10.4"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
