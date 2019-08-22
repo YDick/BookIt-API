@@ -17,9 +17,7 @@ class Api::V1::UsersController < ApplicationController
     # GET api/v1/users/:id
     def show
         @user=User.find(params[:id])
-        if @user == current_user
         render json:{status: 200, user: @user}
-        end
     end
     
     # POST api/v1/users
@@ -39,8 +37,12 @@ class Api::V1::UsersController < ApplicationController
     # DELETE api/v1/users/:id
     def destroy
         @user=User.find(params[:id])
-        User.delete(params[:id])
-        render json:{status: 200, user: @user}
+        # only current user can delete
+        # if @user == current_user
+            User.delete(params[:id])
+            render json:{status: 200, user: @user}
+        # else render json:{status: 403}
+        # end
     end
 
     private
