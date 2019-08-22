@@ -25,6 +25,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             render json: {status: 200, msg: "new user created", user: @user}
+        else render json: @user.errors
         end
     end
     # PATCH api/v1/users/:id
@@ -36,8 +37,12 @@ class Api::V1::UsersController < ApplicationController
     # DELETE api/v1/users/:id
     def destroy
         @user=User.find(params[:id])
-        User.delete(params[:id])
-        render json:{status: 200, user: @user}
+        # only current user can delete
+        # if @user == current_user
+            User.delete(params[:id])
+            render json:{status: 200, user: @user}
+        # else render json:{status: 403}
+        # end
     end
 
     private
