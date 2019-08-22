@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_020321) do
+ActiveRecord::Schema.define(version: 2019_08_09_013104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -32,11 +32,14 @@ ActiveRecord::Schema.define(version: 2019_08_19_020321) do
     t.hstore "club_location"
   end
 
+<<<<<<< HEAD
   create_table "book_clubs_users", id: false, force: :cascade do |t|
     t.integer "book_club_id"
     t.integer "user_id"
   end
 
+=======
+>>>>>>> 0f169646d5be90173f02f32f314ce619340db7ca
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
