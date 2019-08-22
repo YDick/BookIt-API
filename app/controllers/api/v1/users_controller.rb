@@ -17,7 +17,9 @@ class Api::V1::UsersController < ApplicationController
     # GET api/v1/users/:id
     def show
         @user=User.find(params[:id])
+        if @user == current_user
         render json:{status: 200, user: @user}
+        end
     end
     
     # POST api/v1/users
@@ -25,6 +27,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             render json: {status: 200, msg: "new user created", user: @user}
+        else render json: @user.errors
         end
     end
     # PATCH api/v1/users/:id
