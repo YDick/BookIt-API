@@ -28,11 +28,13 @@ class Api::V1::UsersController < ApplicationController
         else render json: @user.errors
         end
     end
+
     # PATCH api/v1/users/:id
     def update 
-        @user=User.update(user_params)
+        @user=User.find(params[:id])
         # only current user can update
         # if @user == current_user
+        User.update(user_params)
         render json:{status: 200, user: @user}
         # else render json:{status: 403}
         # end
