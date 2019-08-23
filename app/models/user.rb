@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_and_belongs_to_many :book_clubs
-    has_many :admins
+    has_many :book_clubs, through: :book_club_users
+    has_many :book_club_users
 
     
     before_validation {

@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_013104) do
+ActiveRecord::Schema.define(version: 2019_08_22_020332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
 
-  create_table "admins_book_clubs", force: :cascade do |t|
-    t.bigint "admins_id"
+
+  create_table "book_club_users", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "book_club_id"
-    t.index ["admins_id"], name: "index_admins_book_clubs_on_admins_id"
-    t.index ["book_club_id"], name: "index_admins_book_clubs_on_book_club_id"
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_club_id"], name: "index_book_club_users_on_book_club_id"
+    t.index ["user_id"], name: "index_book_club_users_on_user_id"
   end
 
   create_table "book_clubs", force: :cascade do |t|
@@ -32,14 +36,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_013104) do
     t.hstore "club_location"
   end
 
-<<<<<<< HEAD
-  create_table "book_clubs_users", id: false, force: :cascade do |t|
-    t.integer "book_club_id"
-    t.integer "user_id"
-  end
-
-=======
->>>>>>> 0f169646d5be90173f02f32f314ce619340db7ca
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -49,6 +45,5 @@ ActiveRecord::Schema.define(version: 2019_08_09_013104) do
     t.hstore "address"
   end
 
-  add_foreign_key "admins_book_clubs", "book_clubs"
-  add_foreign_key "admins_book_clubs", "users", column: "admins_id"
+
 end
