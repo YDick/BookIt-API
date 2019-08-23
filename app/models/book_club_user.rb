@@ -3,6 +3,6 @@ class BookClubUser < ApplicationRecord
     belongs_to :user
 
     scope :admin, -> {
-        where {admin: true}
+        where(admin: true)
     }
 end
