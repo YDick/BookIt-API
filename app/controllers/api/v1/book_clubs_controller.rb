@@ -1,8 +1,8 @@
 class Api::V1::BookClubsController < ApplicationController
   # GET api/v1/clubs/:id
     def index
-        @book_clubs=BookClub.all(book_club_params)
-        render json:{book_clubs: @book_clubs}
+        @book_club=BookClub.all
+        render json:{book_clubs: @book_club}
     end
 
     def show
