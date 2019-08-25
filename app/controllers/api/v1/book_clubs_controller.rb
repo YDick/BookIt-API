@@ -1,10 +1,32 @@
 class Api::V1::BookClubsController < ApplicationController
   # GET api/v1/clubs/:id
-    def show
-        @book_club=BookClub.find(params[:id])
+    def index
+        @book_club=BookClub.all(book_club_params)
         render json:{book_club: @book_club}
     end
-#create, update, delete, index
+
+    def show
+        @book_club=BookClub.find(params[:id])
+        @userlist=@book_club.users
+        render json:{club_info: @book_club, users: @userlist}
+        
+    end
+
+    def create
+        @book_club=BookClub.create(book_club_params)
+        render json:{book_club: @book_club}
+    end
+
+    def update
+        @book_club=BookClub.update(book_club_params)
+        render json:{book_club: @book_club}
+    end
+
+    def destroy
+        @book_club=BookClub.delete(params[:id])
+        render json:{book_club: @book_club}
+    end
+    #create, update, delete, index
     private
     def book_club_params
         params.require(:book_club).permit(:name, :description,  :genre, club_location: [:address_line1, :address_line2, :city, :province, :postal_code, :country])
