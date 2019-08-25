@@ -38,7 +38,7 @@ Knock.setup do |config|
   ## Default:
   # config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
   
-  # heroku returns 500 error when authenticating
+  # fix for heroku returns 500 error when authenticating
     config.token_secret_signature_key = -> { Rails.application.credentials.read  }
   
 
