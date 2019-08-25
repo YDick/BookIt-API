@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         @auth_token = AuthToken.new payload: { sub: @user.id }
         if @user.save 
-            render json: {status: 200, msg: "new user created", user: @user, jwt: @auth_token}
+            render json: {status: 200, msg: "new user created", user: @user, @auth_token}
         else render json: @user.errors
         end
     end
