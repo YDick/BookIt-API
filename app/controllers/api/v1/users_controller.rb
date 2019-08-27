@@ -23,9 +23,8 @@ class Api::V1::UsersController < ApplicationController
     # POST api/v1/users
     def create
         @user = User.new(user_params)
-        @auth_token = AuthToken.new payload: { sub: @user.id }
         if @user.save 
-            render json: {status: 200, msg: "new user created", user: @user, @auth_token}
+            render json: {status: 200, msg: "new user created", user: @user}
         else render json: @user.errors
         end
     end
