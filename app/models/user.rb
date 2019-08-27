@@ -1,6 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
+    # for profile pix
+    include Gravtastic
+    gravtastic :default => :identicon
+
     has_and_belongs_to_many :book_clubs
     has_many :admins
 

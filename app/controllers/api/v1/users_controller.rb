@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+
   # list all the methods that the user needs to be logged in to access
  before_action :authenticate_user, only:[:current, :update, :delete]
 
@@ -10,14 +11,14 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /api/v1/current
     def current
-        render json: {status: 200, current_user: current_user}
+        render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url}
     end
 
 
     # GET api/v1/users/:id
     def show
         @user=User.find(params[:id])
-        render json:{status: 200, user: @user}
+        render json:{status: 200, user: @user, gravatar: @user.gravatar_url}
     end
     
     # POST api/v1/users
