@@ -8,7 +8,8 @@ class Api::V1::BookClubsController < ApplicationController
     def show
         @book_club=BookClub.find(params[:id])
         @userlist=@book_club.users
-        render json:{club_info: @book_club, users: @userlist}
+        @adminlist=@book_club.admins
+        render json:{club_info: @book_club, users: @userlist, admins: @adminlist}
         
     end
 
