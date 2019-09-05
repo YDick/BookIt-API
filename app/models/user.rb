@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
     # for profile pix
     include Gravtastic
-    gravtastic :default => :identicon
+    gravtastic :default => :retro
 
     has_and_belongs_to_many :book_clubs
     has_many :admins
