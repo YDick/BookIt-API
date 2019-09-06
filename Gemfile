@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'knock'
 
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -33,6 +34,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
+
+# for making profile pix from emails of users
+gem 'gravtastic'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
