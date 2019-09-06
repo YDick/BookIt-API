@@ -34,22 +34,22 @@ class Api::V1::UsersController < ApplicationController
     def update 
         @user=User.find(params[:id])
         # only current user can update
-        # if @user == current_user
-        @user.update(user_params)
-        render json:{status: 200, user: @user}
-        # else render json:{status: 403}
-        # end
+        if @user == current_user
+            @user.update(user_params)
+            render json:{status: 200, user: @user}
+        else render json:{msg: 'must be current user to update'}
+        end
     end
 
     # DELETE api/v1/users/:id
     def destroy
         @user=User.find(params[:id])
         # only current user can delete
-        # if @user == current_user
+        if @user == current_user
             @user.delete(params[:id])
             render json:{status: 200, user: @user}
-        # else render json:{status: 403}
-        # end
+        else render json:{msg: "must be current user to delete"}
+        end
     end
 
     private
