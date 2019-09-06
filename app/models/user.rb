@@ -1,9 +1,14 @@
 class User < ApplicationRecord
     has_secure_password
 
+    # for profile pix
+    include Gravtastic
+    # the default will send a github-like abstract icon   
+    gravtastic :default => :retro
+  
     has_many :book_club_users
     has_many :book_clubs, through: :book_club_users
-    
+
 
     
     before_validation {
