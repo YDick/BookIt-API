@@ -37,6 +37,9 @@ gem 'rack-cors'
 # fix for respond_to
 gem 'responders'
 
+# to save gmail address and pass
+gem 'figaro'
+
 # for making profile pix from emails of users
 gem 'gravtastic'
 

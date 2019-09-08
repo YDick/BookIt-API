@@ -31,3 +31,6 @@
 
 # gmail email and pass
 /secrets_env.yml
+
+# Ignore application configuration
+/config/application.yml
