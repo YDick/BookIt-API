@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+
 # just going to add this line. self explanitiory -Yehudis
 /db/schema.rb
 
@@ -27,3 +28,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# gmail email and pass
+/secrets_env.yml

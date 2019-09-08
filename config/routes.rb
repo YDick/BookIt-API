@@ -9,6 +9,8 @@
       get '/current' => 'users#current';
       # post with the user password and email, get login token (JWT) back
       post 'user_token' => 'user_token#create'
+      # send invite email
+      post '/invite' => 'users#invite'
 
 
 # PUT EVERYTHING BETWEEN THE NAMESPACES. THIS WILL MAKE OUR URL BEGIN WITH /api/v1
