@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+    respond_to(:html, :json)
 
   # list all the methods that the user needs to be logged in to access
  before_action :authenticate_user, only:[:current, :update, :delete]
@@ -12,6 +13,17 @@ class Api::V1::UsersController < ApplicationController
     # GET /api/v1/current
     def current
         render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url}
+    end
+
+    # send invite email
+    # POST /api/v1/invite
+    def invite
+        @params = params[:user]
+        respond_with do |format|
+            UserMailer.with(user: @params).invite.deliver
+            format.html 
+            format.json { render json: {"hi": "hi"}, status: :created}
+        end
     end
 
 
