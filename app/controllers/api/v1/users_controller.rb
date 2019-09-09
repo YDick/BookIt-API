@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
     respond_to(:html, :json)
 
   # list all the methods that the user needs to be logged in to access
- before_action :authenticate_user, only:[:current, :update, :delete]
+ before_action :authenticate_user, only:[:current, :update, :delete, :invite]
 
     # GET api/v1/users/
     def index
@@ -19,9 +19,10 @@ class Api::V1::UsersController < ApplicationController
     # POST /api/v1/invite
     def invite
         @params = params[:user]
+        @name = current_user[:name]
         respond_with do |format|
-            UserMailer.with(user: @params).invite.deliver
-            format.html 
+            UserMailer.with(user: @params, name: @name).invite.deliver
+            format.html {render json: {msg: 'email sent', status: :created}}
             format.json { render json: {"hi": "hi"}, status: :created}
         end
     end

@@ -5,8 +5,10 @@
   </head>
   <body>
     <h1>Check Out BookIt, <%= @invitee %></h1>
-    <div><%=@name %></div>
     <p>Check out https://book-it.herokuapp.com/ and join a book club with me!</p>
+    <%if @message%>
+      <p>message: <%= @message%></p>
+    <% end %>
     <p>See you there and have a great day!</p>
   </body>
 </html>
