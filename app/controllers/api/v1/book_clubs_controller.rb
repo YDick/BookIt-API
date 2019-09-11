@@ -2,7 +2,7 @@ class Api::V1::BookClubsController < ApplicationController
   # GET api/v1/book_clubs/:id
     def index
         @book_club=BookClub.all
-        
+
         render json:{book_clubs: @book_club}
     end
 
@@ -16,6 +16,15 @@ class Api::V1::BookClubsController < ApplicationController
         else
           @image = 'https://www.librarieshawaii.org/wp-content/uploads/2016/09/Book-club-graphic-resized-for-website.jpg'
         end
+
+        @userlist.each do |x|
+            x["image"] = x.gravatar_url
+        end
+
+        @adminlist.each do |x|
+            x["image"] = x.gravatar_url
+        end
+
         render json:{status: 200, book_club: @book_club, image: @image, users: @userlist, admins: @adminlist}
         
     end
