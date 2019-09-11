@@ -11,14 +11,16 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /api/v1/current
     def current
-        render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url}
+        @book_clubs = current_user.book_clubs
+        render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url, book_clubs: @book_clubs }
     end
 
 
     # GET api/v1/users/:id
     def show
         @user=User.find(params[:id])
-        render json:{status: 200, user: @user, gravatar: @user.gravatar_url}
+        @book_clubs = @user.book_clubs
+        render json:{status: 200, user: @user, gravatar: @user.gravatar_url, book_clubs: @book_clubs }
     end
     
     # POST api/v1/users
