@@ -10,11 +10,6 @@ class Api::V1::BookClubsController < ApplicationController
         @userlist=@book_club.users
         @adminlist=@book_club.admins
       
-        if @book_club.image_url
-           @image = @book_club.image_url
-        else
-          @image = 'https://www.librarieshawaii.org/wp-content/uploads/2016/09/Book-club-graphic-resized-for-website.jpg'
-        end
         render json:{status: 200, book_club: @book_club, image: @image, users: @userlist, admins: @adminlist}
         
     end
