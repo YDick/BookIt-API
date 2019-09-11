@@ -18,11 +18,11 @@ class Api::V1::BookClubsController < ApplicationController
         end
 
         @userlist.each do |x|
-            x["image"] = x.gravatar_url
+            x.image_url = x.gravatar_url
         end
 
         @adminlist.each do |x|
-            x["image"] = x.gravatar_url
+            x.image_url = x.gravatar_url
         end
 
         render json:{status: 200, book_club: @book_club, image: @image, users: @userlist, admins: @adminlist}
