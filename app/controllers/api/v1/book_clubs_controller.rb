@@ -10,7 +10,7 @@ class Api::V1::BookClubsController < ApplicationController
         @userlist=@book_club.users
         @adminlist=@book_club.admins
       
-        render json:{status: 200, book_club: @book_club, image: @image, users: @userlist, admins: @adminlist}
+        render json:{status: 200, book_club: @book_club, users: @userlist, admins: @adminlist}
         
     end
 
