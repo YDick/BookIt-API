@@ -11,6 +11,7 @@ class Api::V1::BookClubsController < ApplicationController
         @userlist=@book_club.users
         @adminlist=@book_club.admins
       
+
         if @book_club.image_url
            @image = @book_club.image_url
         else
@@ -26,6 +27,7 @@ class Api::V1::BookClubsController < ApplicationController
         end
 
         render json:{status: 200, book_club: @book_club, image: @image, users: @userlist, admins: @adminlist}
+
         
     end
 
