@@ -5,7 +5,7 @@ class BookClub < ApplicationRecord
 
     before_validation {
         if self.image_url == nil
-            (self.image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgqUt6IVQkHaVY-0eYkX57FZ4PzIqG8qKQ0xZtrIyK7K0kiG5U")
+            (self.image_url = "https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1314&q=80")
         end
     }
 end
