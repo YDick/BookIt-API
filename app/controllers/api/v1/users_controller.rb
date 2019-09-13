@@ -12,7 +12,8 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /api/v1/current
     def current
-        render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url}
+        @book_clubs = current_user.book_clubs
+        render json: {status: 200, current_user: current_user, gravatar: current_user.gravatar_url, book_clubs: @book_clubs }
     end
 
     # send invite email
@@ -31,7 +32,8 @@ class Api::V1::UsersController < ApplicationController
     # GET api/v1/users/:id
     def show
         @user=User.find(params[:id])
-        render json:{status: 200, user: @user, gravatar: @user.gravatar_url}
+        @book_clubs = @user.book_clubs
+        render json:{status: 200, user: @user, gravatar: @user.gravatar_url, book_clubs: @book_clubs }
     end
     
     # POST api/v1/users
@@ -47,22 +49,22 @@ class Api::V1::UsersController < ApplicationController
     def update 
         @user=User.find(params[:id])
         # only current user can update
-        # if @user == current_user
-        User.update(user_params)
-        render json:{status: 200, user: @user}
-        # else render json:{status: 403}
-        # end
+        if @user == current_user
+            @user.update(user_params)
+            render json:{status: 200, user: @user}
+        else render json:{msg: 'must be current user to update'}
+        end
     end
 
     # DELETE api/v1/users/:id
     def destroy
         @user=User.find(params[:id])
         # only current user can delete
-        # if @user == current_user
-            User.delete(params[:id])
+        if @user == current_user
+            @user.delete(params[:id])
             render json:{status: 200, user: @user}
-        # else render json:{status: 403}
-        # end
+        else render json:{msg: "must be current user to delete"}
+        end
     end
 
     private
