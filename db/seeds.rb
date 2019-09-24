@@ -8,9 +8,9 @@
 User.delete_all
 BookClub.delete_all
 
-u1 = User.create({name: 'Yehudis', email: 'yehudis@yahoo.com', password: 'password123', address: {address_line1: '234 Willow Ave', city: 'Toronto', province: 'Ontario', postal_code:' M4E 3K7', country: 'canada'}})
-u2 = User.create({name: 'Larisa', email: 'larisa@yahoo.com', password: 'password123', address: {address_line1: '315 St Germain Ave', city: 'Toronto', province: 'Ontario', postal_code:'ON M5M 1W4', country: 'canada'} })
-u3 = User.create({name: 'Yudi', email: 'yudi@yahoo.com', password: 'password123', address: {address_line1: '500 Kingston Rd', city: 'Toronto', province: 'Ontario', postal_code:'M4L 1V3', country: 'canada'} })
+u1 = User.create({name: 'Yehudis', email: 'yehudis@yahoo.com', password: 'password123', address: {address_line1: '2134 Queen St E', city: 'Toronto', province: 'Ontario', postal_code:'  ON M4E 1E3', country: 'canada'}})
+u2 = User.create({name: 'Larisa', email: 'larisa@yahoo.com', password: 'password123', address: {address_line1: '2134 Queen St E', city: 'Toronto', province: 'Ontario', postal_code:' ON M4E 1E3', country: 'canada'} })
+u3 = User.create({name: 'Yudi', email: 'yudi@yahoo.com', password: 'password123', address: {address_line1: '2134 Queen St E', city: 'Toronto', province: 'Ontario', postal_code:' ON M4E 1E3', country: 'canada'} })
 
 a = BookClub.create({name: 'The Hunger Games ', description: 'We read and talk about the hunger games. If you love the hunger games too join us every sunday at 1:00!',genre: 'Hunger Games' , address: {address_line1: '234 Willow Ave', city: 'Toronto', province: 'Ontario', postal_code:' M4E 3K7', country: 'canada'} })
 b = BookClub.create({name: 'Fantasy Books', description: 'We read and talk about the all fantasy books. If you love fantasy books too join us every Monday 7:00 -8:00!',genre: 'Fantasy', address: {address_line1: '500 Kingston Rd', city: 'Toronto', province: 'Ontario', postal_code:'M4L 1V3', country: 'canada'}})
@@ -21,7 +21,7 @@ f = BookClub.create({name: 'The Non fiction Club ', description: 'We read and ta
 
 
 
-a.users << u3
+a.users << u3 
 a.admins << u1
 
 b.users << u3
