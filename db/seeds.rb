@@ -18,6 +18,7 @@ c = BookClub.create({name: 'History is The Best!', description: 'We read and tal
 d = BookClub.create({name: 'The Biography Club ', description: 'We read and talk about the best Biography books. If you love Biography books too join us every wednesday from 5:00 -7:00!', genre: 'Biography', address: {address_line1: '301 Front St W', city: 'Toronto', province: 'Ontario', postal_code:'M5V 2T6', country: 'canada'}})
 e = BookClub.create({name: 'The Science Club ', description: 'We read and talk about the best Science books. If you love Science books too join us every Thursday from 8:00 -9:00!', genre: 'Science', address: {address_line1: '48 St Clair Ave W ', city: 'Toronto', province: 'Ontario', postal_code:' M4V 2Z2', country: 'canada'}})
 f = BookClub.create({name: 'The Non fiction Club ', description: 'We read and talk about the best non fiction books. If you love non fiction books too join us every Friday from 1:00 -3:00!', genre: 'Non Fiction', address: {address_line1: '1974 Queen St E ', city: 'Toronto', province: 'Ontario', postal_code:' M4L 1H8', country: 'canada'}})
+g = BookClub.create({name: 'The Lord of The Rings Club ', description: 'We read and talk about the lord of the rings books. If you love lord of the rings too join us every Friday from 1:00 -3:00!', genre: 'Fantasy', address: {address_line1: ' 235 Redstone Rd ', city: 'Richmond Hill', province: 'Ontario', postal_code:' L4S 2E2', country: 'canada'}})
 
 
 
@@ -38,3 +39,6 @@ e.admins << u3
 
 f.users << u2
 f.admins << u3
+
+g.users << u2
+g.admins << u3
