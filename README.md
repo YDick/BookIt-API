@@ -1,2 +1,2 @@
-#About This Repo
-BookIt is social connectivity application for book lovers that allows users to join real life book clubs. This repo containst the backend component built with Ruby on Rails. BookIt uses bcrypt gem to hash passwords and the knock gem to handle JWT login tokens. BookIt also takes advantage of Ruby on Rails' built in Action Mailer to allow users to send invite emails directly from the application. This application is hosted on Heroku which sits on AWS.
+# About This Repo
+BookIt is social connectivity application for book lovers that allows users to join real life book clubs. This repo is the backend component built with Ruby on Rails. BookIt uses bcrypt gem to hash passwords and the knock gem to handle JWT login tokens. BookIt also takes advantage of Ruby on Rails' built in Action Mailer to allow users to send invite emails directly from the application. This application is hosted on Heroku, a cloud service provider that sits on AWS.
