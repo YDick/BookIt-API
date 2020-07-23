@@ -1,24 +1,2 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#About This Repo
+BookIt is social connectivity application for book lovers that allows users to join real life book clubs. This repo containst the backend component built with Ruby on Rails. BookIt uses bcrypt gem to hash passwords and the knock gem to handle JWT login tokens. BookIt also takes advantage of Ruby on Rails' built in Action Mailer to allow users to send invite emails directly from the application. This application is hosted on Heroku which sits on AWS.
